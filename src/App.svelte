@@ -1,12 +1,23 @@
 <script lang="ts">
   import "modern-css-reset";
+  import { onMount } from "svelte";
   import logo from "./assets/logo.svg";
   import CountDownTimer from "./lib/CountDownTimer.svelte";
 
   const DATETIME_OF_EVENT = new Date("2022-08-19T00:00:00+09:00").getTime();
   const TAKUTEN_2021_URL = "https://geikou-takuten.com/2021/";
 
-  const TAKUTEN_2021_URL = "https://www.geikou-takuten.com/2021/";
+  onMount(() => {
+    const setFillHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    window.addEventListener("resize", setFillHeight);
+    setFillHeight();
+    return () => {
+      window.removeEventListener("resize", setFillHeight);
+    };
+  });
 </script>
 
 <div class="root">
@@ -28,14 +39,20 @@
       sans-serif;
   }
 
+  :global(html) {
+    height: 100%;
+    overflow: hidden;
+  }
+
   .root {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     position: relative;
-    overflow-x: hidden;
+
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
   }
 
   main {
