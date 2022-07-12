@@ -4,6 +4,7 @@
   import CountDownTimer from "./lib/CountDownTimer.svelte";
 
   const DATETIME_OF_EVENT = new Date("2022-08-19T00:00:00+09:00").getTime();
+  const TAKUTEN_2021_URL = "https://geikou-takuten.com/2021/";
 
   const TAKUTEN_2021_URL = "https://www.geikou-takuten.com/2021/";
 </script>
