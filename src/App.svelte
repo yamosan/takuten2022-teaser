@@ -4,8 +4,8 @@
   import logo from "./assets/logo.svg";
   import CountDownTimer from "./lib/CountDownTimer.svelte";
 
-  const DATETIME_OF_EVENT = new Date("2022-08-19T00:00:00+09:00").getTime();
-  const TAKUTEN_2021_URL = "https://geikou-takuten.com/2021/";
+  const DATETIME_OF_EVENT = import.meta.env["VITE_APP_DATETIME_OF_EVENT"];
+  const TAKUTEN_2021_URL = import.meta.env["VITE_APP_TAKUTEN_2021_URL"];
 
   onMount(() => {
     const setFillHeight = () => {
