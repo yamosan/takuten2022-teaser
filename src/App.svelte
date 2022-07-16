@@ -41,7 +41,9 @@
 
   :global(html) {
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    position: fixed;
   }
 
   .root {
