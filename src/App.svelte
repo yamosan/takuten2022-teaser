@@ -121,7 +121,6 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 40px;
     position: absolute;
     left: min(4.5vw, 90px);
     top: 50%;
@@ -131,9 +130,6 @@
       transform: none;
       margin-top: 36px;
       flex-direction: row;
-    }
-    @include mq(sm) {
-      gap: 14px;
     }
 
     li {
@@ -152,6 +148,20 @@
       @include mq(sm) {
         width: 36px;
         height: 36px;
+      }
+      /* flex gap */
+      margin-top: 40px;
+      margin-left: 0;
+      @include mq(lg) {
+        margin-top: 0;
+        margin-left: 36px;
+      }
+      @include mq(sm) {
+        margin-top: 0;
+        margin-left: 14px;
+      }
+      &:first-child {
+        margin: 0;
       }
     }
   }
