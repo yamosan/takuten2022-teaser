@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
+
+  // const dispatch = createEventDispatcher<{ tick: number }>(); // TODO: パフォーマンス的に毎秒 dispatch するのがアリか検証
+  const dispatch = createEventDispatcher<{ finish: undefined }>();
 
   export let date: number; // ms
 
