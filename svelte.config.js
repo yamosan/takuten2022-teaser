@@ -1,7 +1,13 @@
-import sveltePreprocess from 'svelte-preprocess'
+import sveltePreprocess from "svelte-preprocess";
+import autoprefixer from "autoprefixer";
 
 export default {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: sveltePreprocess()
-}
+  preprocess: sveltePreprocess({
+    scss: {
+      prependData: `@import 'src/styles/_breakpoint.scss';@import 'src/styles/_mixin.scss';`,
+    },
+    postcss: {
+      plugins: [autoprefixer],
+    },
+  }),
+};
