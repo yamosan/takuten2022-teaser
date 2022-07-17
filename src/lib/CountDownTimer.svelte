@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<style>
+<style lang="scss">
   .root {
     width: 100%;
     display: inline-flex;
@@ -55,35 +55,30 @@
     justify-content: center;
     user-select: none;
     gap: 16px;
+    @include mq(sm) {
+      gap: 6px;
+    }
   }
 
   .digit {
     display: inline-flex;
     gap: 5px;
-
     font-size: min(10vw, 98px);
     font-weight: 500;
     font-variant-numeric: tabular-nums;
     color: #49c0e6;
     line-height: 1;
-  }
-
-  .digit > span {
-    margin-top: 0.45em;
-
-    font-size: min(4vw, 25px);
-    font-weight: 300;
-  }
-
-  @media screen and (max-width: 480px) {
-    .root {
-      gap: 6px;
-    }
-    .digit {
+    @include mq(sm) {
       gap: 2px;
     }
-    .digit > span {
-      margin-top: 0.25em;
+
+    span {
+      margin-top: 0.45em;
+      font-size: min(4vw, 25px);
+      font-weight: 300;
+      @include mq(sm) {
+        margin-top: 0.25em;
+      }
     }
   }
 </style>
