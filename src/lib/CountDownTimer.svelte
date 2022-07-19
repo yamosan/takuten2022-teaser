@@ -1,5 +1,8 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
+
+  // const dispatch = createEventDispatcher<{ tick: number }>(); // TODO: パフォーマンス的に毎秒 dispatch するのがアリか検証
+  const dispatch = createEventDispatcher<{ finish: undefined }>();
 
   export let date: number; // ms
 
@@ -25,7 +28,14 @@
     return String(n).padStart(2, "0");
   };
 
-  $: if (count < 0) clearInterval(interval);
+  $: if (count < 0) {
+    clearInterval(interval);
+    dispatch("finish");
+    d = 0;
+    h = 0;
+    m = 0;
+    s = 0;
+  }
 </script>
 
 <div class="root">

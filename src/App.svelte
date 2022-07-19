@@ -22,6 +22,10 @@
       window.removeEventListener("resize", setFillHeight);
     };
   });
+
+  const handleFinish = () => {
+    window.location.reload();
+  };
 </script>
 
 <div class="root">
@@ -29,7 +33,7 @@
     <div class="contents">
       <img src={logo} alt="logo" />
       <p>COMING SOON</p>
-      <CountDownTimer date={DATETIME_OF_EVENT} />
+      <CountDownTimer date={DATETIME_OF_EVENT} on:finish={handleFinish} />
     </div>
     <ul class="sns">
       <li>

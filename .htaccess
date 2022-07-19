@@ -1,0 +1,24 @@
+Options +SymLinksIfOwnerMatch
+RewriteEngine on
+RewriteBase /
+
+# 開催前-----
+# 2022-08-19 09:59:50
+RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN}%{TIME_SEC} "<20220819095950"
+RewriteCond %{REQUEST_URI} ^/2022/(.*)$
+RewriteRule ^(.+)$ / [R=302,L]
+
+
+RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN}%{TIME_SEC} "<20220819095950"
+RewriteRule ^$ 2022-teaser/ [L]
+
+RewriteCond %{TIME_YEAR}%{TIME_MON}%{TIME_DAY}%{TIME_HOUR}%{TIME_MIN}%{TIME_SEC} "<20220819095950"
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ 2022-teaser/$1 [L]
+# -----------
+
+RewriteRule ^$ 2022/ [R=302,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)$ 2022/$1 [R=302,L]
