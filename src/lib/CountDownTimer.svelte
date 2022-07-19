@@ -28,7 +28,14 @@
     return String(n).padStart(2, "0");
   };
 
-  $: if (count < 0) clearInterval(interval);
+  $: if (count < 0) {
+    clearInterval(interval);
+    dispatch("finish");
+    d = 0;
+    h = 0;
+    m = 0;
+    s = 0;
+  }
 </script>
 
 <div class="root">
